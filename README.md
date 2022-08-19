@@ -1,4 +1,4 @@
-# Use TypeScrip to Create CRUD API using NodeJS and MongoDB
+# Use TypeScript to Create CRUD API using NodeJS
 
 
 Installation steps
@@ -11,12 +11,12 @@ npm i -D typescript
 
 npm i -D @types/node @types/express @types/dotenv @types/cors @types/helmet @types/mongoose
 
-Create ENV file 
+Create ENV file
 touch .env
 
 Start the project in two terminals
-
+Open the terminal run the command
 npm run webpack
+
+Open another terminal run the below command
 npm start
-
-

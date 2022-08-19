@@ -1,43 +1,31 @@
 import cors from 'cors';
 import express from 'express';
 import * as dotenv from "dotenv";
-import mongoose from 'mongoose';
 import helmet from "helmet";
-// import * as productCRUD from './product-crud';
-import * as productCRUD from './product-crud-mongo';
+import * as productCRUD from './epispode';
 
 dotenv.config();
 
 if (!process.env.PORT) {
   console.log(`Error to get ports`);
-    process.exit(1);
- }
- 
-const uri: string = "mongodb://127.0.0.1:27017/codeindepth";
+  process.exit(1);
+}
 
-mongoose.connect(uri, (err: any) => {
-  if (err) {
-    console.log(err.message);
-  } else {
-    console.log(`Connecting to MONGO`);
-  }
-});
+const PORT: number = parseInt(process.env.PORT as string, 10);
 
- const PORT: number = parseInt(process.env.PORT as string, 10);
- 
- const app = express();
+const app = express();
 
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
 const server = app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
+  console.log(`Listening on port ${PORT}`);
 });
 
 
-const authorisedRoute = express.Router();
-app.use("/product/api", authorisedRoute);
+const router = express.Router();
+app.use("/api", router);
 
 app.use((req, res, next) => {
   res.setHeader(
@@ -54,12 +42,9 @@ app.use((req, res, next) => {
 
   next();
 });
-
+git config user.email "https://github.com/harpreet-singh-git/taskNodeJs.git"
 
 // Send message for default URL
-authorisedRoute.get('/', (req, res) => res.send('Welcome to default response of Product API'));
+// router.get('/', (req, res) => res.send('Welcome to default response of API'));
 
-authorisedRoute.get('/products', productCRUD.getProductList);
-authorisedRoute.post('/products',productCRUD.createProduct);
-authorisedRoute.post('/updateproduct',productCRUD.updateroduct);
-authorisedRoute.post('/deleteproduct',productCRUD.deleteproduct);
+router.get('/episodes', productCRUD.getEpisode);
