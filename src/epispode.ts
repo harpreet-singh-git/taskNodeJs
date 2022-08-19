@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getEpisode = async (req: any, res: any) => {
 
-  const response = await axios.get('https://rickandmortyapi.com/api/episode');
+  const response = await axios.get(process.env.SAMPLE_API as string);
   // console.log("Get all episodes", response.data.results)
   const episodes = response.data.results
   for (const i in episodes) {

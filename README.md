@@ -11,12 +11,10 @@ npm i -D typescript
 
 npm i -D @types/node @types/express @types/dotenv @types/cors @types/helmet @types/mongoose
 
-Create ENV file
-touch .env
-
-Start the project in two terminals
 Open the terminal run the command
+
 npm run webpack
 
 Open another terminal run the below command
+
 npm start
