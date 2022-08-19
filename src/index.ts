@@ -42,7 +42,6 @@ app.use((req, res, next) => {
 
   next();
 });
-git config user.email "https://github.com/harpreet-singh-git/taskNodeJs.git"
 
 // Send message for default URL
 // router.get('/', (req, res) => res.send('Welcome to default response of API'));
